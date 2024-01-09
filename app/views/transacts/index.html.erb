@@ -1,0 +1,33 @@
+<div>
+  <% @header = "Transactions" %>
+	  <%= render "layouts/header", locals: { header: @header }, back: true %>
+<div>
+  <% if @transacts.empty?%>
+    <p>You don't have any transactions yet !!</p>
+  <% else %>
+    <ul>
+      <li>
+          <div>
+            <div><%= @category.icon %></div>
+            <div><%= @category.name %></div>
+          </div>
+          <div>
+            <div>Total spent on this category</div>
+            <div><%= number_with_delimiter(@total) %> $</div>
+          </div> 
+      </li>
+      <% @transacts.each do |tran| %>
+        <li>
+          <div>
+              <span><%= tran.name %></span>
+              <span><%=  number_with_delimiter(tran.amount)  %> $ </span>
+          </div>
+          <div>
+              <span><%= tran.created_at.strftime("%d %B '%Y, %R") %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= link_to "Add a new Transaction", new_category_transact_path(@category)%>
+</div>
