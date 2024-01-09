@@ -1,5 +1,7 @@
-class TransactCategory < ApplicationRecord
-    t.references :transact, null: false, foreign_key: true
-    t.references :Category, null: false, foreign_key: true
-    
+class TransactCategory < ApplicationRecord  
+  belongs_to :transact
+  belongs_to :category
+  
+  validates :category_id, presence: true
+  validates :transact_id, presence: true
 end
