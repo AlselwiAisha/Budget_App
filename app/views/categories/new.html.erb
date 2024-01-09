@@ -1,0 +1,13 @@
+<div>
+ <% @header = "New Category" %>
+  <%= render "layouts/header", locals: { header: @header }, back: true %>
+  <%= form_with model: @category, url: categories_path do |form| %>
+    <div>
+          <div>
+            <%= form.text_field :name, placeholder: "New Category", required: true%>
+            <%= form.select :icon, options_for_select(@choices, selected: @category.icon), { prompt: "Select the icon" }, required: true %>
+          </div>
+    </div>
+    <%= form.submit "Save"%>
+  <% end %>
+</div>
