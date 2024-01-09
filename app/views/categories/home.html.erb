@@ -1,0 +1,21 @@
+<div>
+ <% @header = 'Categories' %>
+ <%= render "layouts/header", locals: { header: @header }, back: false %>
+
+ 	  <% if @categories.empty?%>
+      <p>You don't have any categories yet !!</p>
+        <% else %>
+          <ul>
+              <% @categories.each do |categ| %>
+                  <%= link_to category_transacts_path(category_id: categ.id) do %>
+                      <li >
+                          <div><%= categ.icon %></div>
+                          <div><%= categ.name %></div>
+                          <div>$ <%= categ.transacts.sum(:amount) %>
+                      </li>
+                  <% end %>
+              <% end %>
+          </ul>
+        <% end %>
+  <%= link_to "Add a new category", new_category_path%>
+</div>
