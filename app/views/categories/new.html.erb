@@ -1,12 +1,10 @@
 <div>
- <% @header = "New Category" %>
+ <% @header = "NEW CATEGORY" %>
   <%= form_with model: @category, url: categories_path do |form| %>
-    <div>
-          <div>
-            <%= form.text_field :name, placeholder: "New Category", required: true%>
-            <%= form.select :icon, options_for_select(@choices, selected: @category.icon), { prompt: "Select the icon" }, required: true %>
+          <div class="filed">
+            <%= form.text_field :name, placeholder: "New Category", required: true, class:"field-"%>
+            <%= form.select :icon, options_for_select(@choices, selected: @category.icon), { prompt: "Select an icon" }, required: true ,class:"field-"%>
           </div>
-    </div>
-    <%= form.submit "Save"%>
+    <%= form.submit "Save", class:'save-btn'%>
   <% end %>
 </div>

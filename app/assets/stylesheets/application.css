@@ -33,21 +33,7 @@ body {
   .text-color{
     color:  #989DA3;
   }
-  .sec{
-  padding: 1rem;
-  height: 50vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: stretch;
-}
-.sec h2{
-  width: 100%;
-  text-align: center;
-  color: #3778c3;
-  margin: 1rem;
-}
+
 .btn{
   margin: 0.2rem;
   padding: 0.5rem;
@@ -61,11 +47,36 @@ body {
 .field{
   margin-top: 0.2rem;
 width: 100%;
+display: flex;
+flex-direction: column;
 }
 .field-{
   padding: 0.6rem 0.3rem 0.6rem 0.3rem;
 width: 100%;
 border: #989DA3 solid 1px;
+}
+
+.save-btn{
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 50%;
+  background-color: #5fb523;
+  color:white;
+  font-size: 15px;
+  border: white solid 1px;
+  border-radius: 10px;
+
+}
+.save-btn:hover{
+  background-color: white;
+  color: #5fb523;
+  border: #5fb523 solid 1px;
+  box-shadow: 3px 3px 5px #c4c5c5;
+}
+
+.save-btn:active{
+  border: #5fb523 solid 2px;
+  box-shadow: 3px 3px 6px #9d9e9e;
 }
 
   /* -----------splash---------- */
@@ -85,7 +96,7 @@ align-items: center;
 .splash .btn{
   margin: 0.2rem;
   width: 95%;
-  padding: 5%;
+  padding: 1rem;
   background-color:#e3edf8 ;
   color: #989DA3;
   text-align: center;

@@ -19,6 +19,9 @@ module BudgetApp
     config.assets.enabled = true
 
     config.assets.debug = true
+
+    config.assets.compile = false
+  
     config.action_controller.raise_on_missing_callback_actions = false
     # Configuration for the application, engines, and railties goes here.
     #
