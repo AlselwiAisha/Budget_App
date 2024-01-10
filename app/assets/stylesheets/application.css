@@ -1,15 +1,70 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/assets/fonts/Proxima-Nova.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Proxima Nova", sans-serif;
+  }
+
+  .bg-main-color{
+    background-color: #3778c3;
+  }
+
+  .text-white{
+     color: white;
+  }
+.splash{
+  height: 100vh;
+  padding: 20%;
+  display: flex;
+  flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+.splash .btns{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.splash .btn{
+  margin: 0.2rem;
+  width: 95%;
+  padding: 5%;
+  background-color:#e3edf8 ;
+  color: #989DA3;
+  text-align: center;
+  text-decoration:none;
+}
+.splash .btn:hover{
+  background-color:#3778c3;
+  border: white solid 1px;
+  box-shadow: 3px 3px 5px #e3edf8;
+  color: white ;
+
+}
+.splash .btn:active{
+  background-color:white;
+  border: #3778c3 solid 1px;
+  box-shadow: 3px 3px 5px #e3edf8;
+  color: #3778c3 ;
+}
+.header{
+   padding:1rem 0.5rem; 
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.header button{
+  background-color:transparent;
+}
+
