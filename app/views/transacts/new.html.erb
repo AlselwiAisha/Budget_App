@@ -1,12 +1,10 @@
 <div>
- <% @header = "New Transaction" %>
+ <% @header = "NEW TRANSACTION" %>
   <%= form_with model: @transact, url: category_transacts_path(@category) do |form| %>
-    <div>
-          <div>
-            <%= form.text_field :name,  placeholder: "New Transaction Name", required: true %>
-            <%= form.number_field :amount, placeholder: "Amount (USD)", required: true %>
+          <div class='main-field'>
+            <%= form.text_field :name,  placeholder: "Name", required: true, class:'text-field'%>
+            <%= form.number_field :amount, placeholder: "Amount (USD)", required: true, class:'text-field' %>
           </div>
-    </div>
-    <%= form.submit "Save"%>
+    <%= form.submit "Save", class:'save-btn'%>
   <% end %>
 </div>
