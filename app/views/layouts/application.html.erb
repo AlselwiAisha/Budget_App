@@ -11,8 +11,8 @@
   <body>
      <% if user_signed_in? %>
         <%= render "layouts/header", locals: { header: @header }, back: false %>
-     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+     <p class="text-green"><%= notice %></p>
+       <p class="text-red"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>
