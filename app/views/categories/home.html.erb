@@ -1,7 +1,5 @@
 <div>
  <% @header = 'Categories' %>
- <%= render "layouts/header", locals: { header: @header }, back: false %>
-
  	  <% if @categories.empty?%>
       <p>You don't have any categories yet !!</p>
         <% else %>

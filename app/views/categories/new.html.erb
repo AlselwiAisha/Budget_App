@@ -1,6 +1,5 @@
 <div>
  <% @header = "New Category" %>
-  <%= render "layouts/header", locals: { header: @header }, back: true %>
   <%= form_with model: @category, url: categories_path do |form| %>
     <div>
           <div>
