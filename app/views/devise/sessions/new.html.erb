@@ -6,12 +6,12 @@
   <h2 class="font-medium text-2xl capitalize text-white">LOGIN</h2>
     <%= f.submit "Log in" ,class:'btn'%>
 </div>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email" ,class:'field-'%>
+  <div class="main-field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email" ,class:'text-field'%>
   </div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password",placeholder: "Password",class:'field-' %>
+  <div class="main-field">
+    <%= f.password_field :password, autocomplete: "current-password",placeholder: "Password",class:'text-field' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
