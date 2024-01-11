@@ -10,16 +10,16 @@ RSpec.describe TransactCategory, type: :model do
       icon: 'icon'
     )
 
-    @transact = 
+    @transact =
       Transact.create(
-       name: 'transaction 1',
-       amount: 200
+        name: 'transaction 1',
+        amount: 200
       )
   end
 
   it 'is not valid without a transact_id' do
     transact_category = TransactCategory.new(
-      category_id:  @category
+      category_id: @category
     )
     expect(transact_category).to_not be_valid
   end

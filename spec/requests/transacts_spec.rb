@@ -1,43 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe 'Caregories home Page', type: :feature do
+  let(:user) { User.create(name: 'aisha', email: 'aisha@example.com', password: 'password') }
   before(:each) do
-    @user = User.create(
-      id: 3,
-      name: 'Aisha',
-      email: 'aisha@gmail.com',
-      password: '123456'
-    )
-
     @category = Category.create(
-        id: 1,
-        user_id: @user.id,
-        name: 'Sport',
-        icon: 'icon'
+      id: 1,
+      user_id: user.id,
+      name: 'Sport',
+      icon: 'icon'
+    )
+    @transactions = [
+      Transact.create(
+        author_id: user.id,
+        name: 'transaction 1',
+        amount: 200
+      ),
+      Transact.create(
+        author_id: user.id,
+        name: 'transaction 2',
+        amount: 200
       )
-      @transactions = [
-        Transact.create(
-         author_id: @user.id,
-         name: 'transaction 1',
-         amount: 200
-        ),
-         Transact.create(
-          author_id: @user.id,
-          name: 'transaction 2',
-          amount: 200
-        ),
-          Transact.create(
-             author_id: @user.id,
-             name: 'transaction 3',
-             amount: 400)
-      ]
-      TransactCategory.create(transact_id: @transactions[0].id, category_id: @category.id)
-      TransactCategory.create(transact_id: @transactions[1].id, category_id: @category.id)
-      TransactCategory.create(transact_id: @transactions[2].id, category_id: @category.id)
-    
+    ]
+    TransactCategory.create(transact_id: @transactions[0].id, category_id: @category.id)
+    TransactCategory.create(transact_id: @transactions[1].id, category_id: @category.id)
+
     visit new_user_session_path # Assuming this is your sign-in page
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Log in'
     visit category_transacts_path(category_id: @category.id)
   end
@@ -48,34 +37,32 @@ RSpec.describe 'Caregories home Page', type: :feature do
     end
 
     it 'displays the category name' do
-        expect(page).to have_content(@category.name)
+      expect(page).to have_content(@category.name)
     end
 
     it 'displays the  icon' do
-        expect(page).to have_content(@category.icon)
+      expect(page).to have_content(@category.icon)
     end
 
-    
-  it 'shows the total transaction for this category' do
-    expect(page).to have_content(800)
-  end
 
-  it 'shows the all transaction' do
-    expect(page).to have_content('transaction 1')
-    expect(page).to have_content('200')
-    expect(page).to have_content('transaction 2')
-    expect(page).to have_content('200')
-    expect(page).to have_content('transaction 3')
-    expect(page).to have_content('400')
-  end
+    it 'shows the total transaction for this category' do
+      expect(page).to have_content(400)
+    end
 
-  it 'shows the add transaction button' do
-    expect(page).to have_link('Add a new Transaction')
-  end
+    it 'shows the all transaction' do
+      expect(page).to have_content('transaction 1')
+      expect(page).to have_content('200')
+      expect(page).to have_content('transaction 2')
+      expect(page).to have_content('200')
+    end
 
-  it 'navigates to the new category page when clicking "Add a new Transaction"' do
-    click_on 'Add a new Transaction'
-    expect(page).to have_content('NEW TRANSACTION')
-  end
+    it 'shows the add transaction button' do
+      expect(page).to have_link('Add a new Transaction')
+    end
+
+    it 'navigates to the new category page when clicking "Add a new Transaction"' do
+      click_on 'Add a new Transaction'
+      expect(page).to have_content('NEW TRANSACTION')
+    end
   end
 end

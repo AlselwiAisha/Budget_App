@@ -11,7 +11,7 @@ class TransactsController < ApplicationController
   end
 
   def create
-    @user=current_user
+    @user = current_user
     @category = Category.find(params[:category_id])
     @transact = @user.transacts.new(transacts_params)
     if @transact.save

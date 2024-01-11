@@ -5,7 +5,7 @@ RSpec.describe 'categories/new.html.erb', type: :view do
   before do
     assign(:header, 'NEW CATEGORY')
     assign(:category, Category.new)
-    assign(:choices, ['icon1', 'icon2', 'icon3']) # Replace with your actual choices
+    assign(:choices, %w[icon1 icon2 icon3]) # Replace with your actual choices
     render
   end
 
