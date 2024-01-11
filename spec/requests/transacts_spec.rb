@@ -44,7 +44,6 @@ RSpec.describe 'Caregories home Page', type: :feature do
       expect(page).to have_content(@category.icon)
     end
 
-
     it 'shows the total transaction for this category' do
       expect(page).to have_content(400)
     end
