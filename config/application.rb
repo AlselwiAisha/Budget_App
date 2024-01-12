@@ -20,6 +20,10 @@ module BudgetApp
     config.assets.enabled = true
 
     config.assets.debug = true
+
+    config.assets.configure do |env|
+      env.export_concurrent = false
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
