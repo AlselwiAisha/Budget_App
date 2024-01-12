@@ -20,6 +20,9 @@ module BudgetApp
     config.assets.enabled = true
 
     config.assets.debug = true
+
+    config.serve_static_assets = true
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
