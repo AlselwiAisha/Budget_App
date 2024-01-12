@@ -12,7 +12,7 @@ gem 'sprockets-rails'
 gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '>= 5.0'
+gem 'puma', '>= 5.5.2'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
@@ -46,14 +46,14 @@ gem 'bootsnap', require: false
 gem 'rubocop', '>= 1.0', '< 2.0'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri windows]
+  # gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
-
+  gem 'webrick'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
