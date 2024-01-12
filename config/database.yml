@@ -19,4 +19,4 @@ production:
   <<: *default
   database: budget_app_production
   username: my_rails_budget
-  password: <%= ENV["MY_RAILS_BUDGET_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
