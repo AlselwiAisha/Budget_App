@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+   </head>
 
   <body>
+     <% if user_signed_in? %>
+        <%= render "layouts/header", locals: { header: @header }, back: false %>
+     <p class="text-green f-15"><%= notice %></p>
+       <p class="text-red f-15"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

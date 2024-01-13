@@ -1,0 +1,21 @@
+<div>
+ <% @header = 'CATEGORIES' %>
+ 	  <% if @categories.empty?%>
+      <p>You don't have any categories yet !!</p>
+        <% else %>
+          <ul>
+              <% @categories.each do |categ| %>
+                  <%= link_to category_transacts_path(category_id: categ.id),class:'link' do %>
+                      <li class='categ'>
+                          <div><%= categ.icon %>
+                          <%= categ.name %></div>
+                          <div>$ <%= categ.transacts.sum(:amount) %>
+                      </li>
+                  <% end %>
+              <% end %>
+          </ul>
+        <% end %>
+        <div class='new-btn'> 
+  <%= link_to "Add a new category", new_category_path, class:'add-new-btn link'%>
+  </div>
+</div>

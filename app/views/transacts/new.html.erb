@@ -1,0 +1,19 @@
+<div>
+ <% @header = "NEW TRANSACTION" %>
+  <%= form_with(model: [@category,@transact], url: category_transacts_path(@category) , method: :post,id: 'transact-form') do |form| %>
+  <div class='main-field'>
+    <%= form.text_field :name, placeholder: "Name", required: true, class: 'text-field' %>
+    <%= form.number_field :amount, placeholder: "Amount (USD)", required: true, class: 'text-field' %>
+
+    <div class="checkboxes">
+      <div>Select Categories</div>
+      <% @categories.each_with_index do |catg, index| %>
+        <%= check_box_tag 'transact[category_ids][]', catg.id %>
+        <%= label_tag "transact_category#{catg.id}", catg.name %> <br>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit "Save", class: 'save-btn' %>
+<% end %>
+</div>
