@@ -1,4 +1,5 @@
 class TransactsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @category = Category.find(params[:category_id])
     @transacts = @category.transacts.order(created_at: :desc)
@@ -6,26 +7,33 @@ class TransactsController < ApplicationController
   end
 
   def new
-    @transact = Transact.new
     @category = Category.find(params[:category_id])
+    @categories = Category.all
+    @transact = Transact.build
   end
 
   def create
     @user = current_user
+    @transact = @user.transacts.build(transacts_params)
     @category = Category.find(params[:category_id])
-    @transact = @user.transacts.new(transacts_params)
+
     if @transact.save
-      TransactCategory.create(category_id: @category.id, transact_id: @transact.id)
-      redirect_to category_transacts_path(category_id: @category.id),
+      category_ids = params[:transact][:category_ids] || @category
+      category_ids.each do |category_id|
+        TransactCategory.create(category_id:, transact_id: @transact.id)
+      end
+      redirect_to category_transacts_path(category_id: @category),
                   notice: 'Transaction was successfully created.'
     else
-      redirect_to new_category_transact_path(category_id: @category.id), alert: 'Transaction can\'t be created'
+      @category = Category.find(params[:category_id])
+      @categories = Category.all
+      render :new, alert: 'Transaction can\'t be created'
     end
   end
 
   private
 
   def transacts_params
-    params.require(:transact).permit(:name, :amount)
+    params.require(:transact).permit(:name, :amount, category_ids: [])
   end
 end
