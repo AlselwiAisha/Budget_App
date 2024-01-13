@@ -15,7 +15,6 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
-  - [📽️ Video  ](#️-video--)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -67,12 +66,6 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo](https://budget-x2so.onrender.com/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 📽️ Video  <a name="video"></a>
-
-- [Video](https://drive.google.com/file/d/1q-j4rCKkq_wT7F7nYxyPqKLy7tSl78ru/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
