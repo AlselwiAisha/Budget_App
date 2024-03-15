@@ -32,7 +32,7 @@
 
 # 📖 Budget APP <a name="about-project"></a>
 
-**Budget Beam** is a simple budget app in which any user can sign up first and then have multiple categories for his expenses. Each category has transactions. It tracks all the transactions, sum them and show them to the user.
+**"Budget Beam"** is a simple budget app in which any user can sign up first and then have multiple categories for his expenses. Each category has transactions. It tracks all the transactions, sum them and show them to the user.
 
 ## 🛠 Built With <a name="built-with"></a>
 
